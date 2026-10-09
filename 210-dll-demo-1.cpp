@@ -46,19 +46,21 @@ public:
         name = n;
         color = c;
     }
+    //personal print function so goat members dont have to go public
+    void print() {
+        cout << name << " (" << color << ", " << age << " )";
+    }
+
 };
-
-
-
-
 
 class DoublyLinkedList {
 private:
     struct Node {
-        int data;
+        Goat data;
         Node* prev;
         Node* next;
-        Node(int val, Node* p = nullptr, Node* n = nullptr) {
+
+        Node(Goat val, Node* p = nullptr, Node* n = nullptr) {
             data = val; 
             prev = p;
             next = n;
@@ -72,8 +74,9 @@ public:
     // constructor
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
 
-    void push_back(int value) {
+    void push_back(Goat value) {
         Node* newNode = new Node(value);
+
         if (!tail)  // if there's no tail, the list is empty
             head = tail = newNode;
         else {
@@ -83,8 +86,9 @@ public:
         }
     }
 
-    void push_front(int value) {
+    void push_front(Goat value) {
         Node* newNode = new Node(value);
+
         if (!head)  // if there's no head, the list is empty
             head = tail = newNode;
         else {
@@ -94,7 +98,7 @@ public:
         }
     }
 
-    void insert_after(int value, int position) {
+    /*void insert_after(int value, int position) {
         if (position < 0) {
             cout << "Position must be >= 0." << endl;
             return;
@@ -148,12 +152,19 @@ public:
 
         delete temp;
     }
+        */
 
     void print() {
         Node* current = head;
-        if (!current) return;
+
+        if (!current) {
+            cout << "List is empty" << endl;
+            return;
+        }
+        
         while (current) {
-            cout << current->data << " ";
+            cout << data.print() << endl;
+
             current = current->next;
         }
         cout << endl;
@@ -161,9 +172,15 @@ public:
 
     void print_reverse() {
         Node* current = tail;
-        if (!current) return;
+
+        if (!current) {
+            cout << "List is empty" << endl;
+            return;
+        }
+
         while (current) {
-            cout << current->data << " ";
+            cout << data.print() << endl;
+
             current = current->prev;
         }
         cout << endl;
