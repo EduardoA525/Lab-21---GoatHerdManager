@@ -50,7 +50,11 @@ public:
     void print() {
         cout << name << " (" << color << ", " << age << ")";
     }
-
+    //going the extra mile to make delete_node work :)
+    //Decided to use Age as the int value to search for
+    int getAge() {
+        return age;
+    }
 };
 
 class DoublyLinkedList {
@@ -133,7 +137,8 @@ public:
         if (!head) return; // Empty list
 
         Node* temp = head;
-        while (temp && temp->data != value)
+        //uses the getter for the age
+        while (temp && temp->data.getAge() != value)
             temp = temp->next;
 
         if (!temp) return; // Value not found
