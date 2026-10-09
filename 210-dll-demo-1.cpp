@@ -48,7 +48,7 @@ public:
     }
     //personal print function so goat members dont have to go public
     void print() {
-        cout << name << " (" << color << ", " << age << " )";
+        cout << name << " (" << color << ", " << age << ")";
     }
 
 };
@@ -98,7 +98,7 @@ public:
         }
     }
 
-    /*void insert_after(int value, int position) {
+    void insert_after(Goat value, int position) {
         if (position < 0) {
             cout << "Position must be >= 0." << endl;
             return;
@@ -152,7 +152,6 @@ public:
 
         delete temp;
     }
-        */
 
     void print() {
         Node* current = head;
@@ -218,10 +217,10 @@ int main() {
     cout << "List backward: " << endl;
     list.print_reverse();
 
-    /*cout << "Deleting list, then trying to print.\n";
+    cout << "Deleting list, then trying to print.\n";
     list.~DoublyLinkedList();
     cout << "List forward: ";
-    list.print();*/
+    list.print();
 
     return 0;
 }
