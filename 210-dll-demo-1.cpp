@@ -2,10 +2,55 @@
 //COMSC - 210 - 5293
 //Lab 21 - Goat Herd Manager 3000
 
+#include <string>
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
+
+class Goat {
+private:
+    int age;
+    string name;
+    string color;
+
+    //array for random goat name
+    string goatNames[15] = { "Billy", "Clover", "Daisy", 
+        "Duke", "Fern", "Ginger", "Hazel", "Maple", 
+        "Milo", "Oreo", "Pepper", "Poppy", "Rosie", "Shadow", "Willow"
+    };
+
+    //array for random goat color
+    string goatColors[15] = { "White", "Black", "Brown", 
+        "Gray", "Tan", "Cream", "Golden", "Spotted", "Red", 
+        "Chocolate", "Silver", "Charcoal", "Beige", "Rust", "Black and White"
+    };
+
+public:
+    //Default constructor with randos
+    Goat() {
+        age = rand() % 20 + 1;
+
+        int nameNum = rand() % 15;
+        int colorNum = rand() % 15;
+
+        name = goatNames[nameNum];
+        color = goatColors[colorNum];
+    }
+
+    //parameters
+    Goat(int a, string n, string c) {
+        age = a;
+        name = n;
+        color = c;
+    }
+};
+
+
+
+
 
 class DoublyLinkedList {
 private:
